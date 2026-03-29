@@ -1,0 +1,58 @@
+<html>
+<head>
+<style>
+body{font-family:Arial;}
+form{width:300px;margin:auto;}
+input,select{width:100%;padding:8px;margin:5px 0;}
+button{padding:10px;width:100%;}
+</style>
+
+<script>
+function validate(){
+    var name=document.getElementById("name").value;
+    var age=document.getElementById("age").value;
+    var phone=document.getElementById("phone").value;
+
+    if(name.length<3){
+        alert("Enter valid name");
+        return false;
+    }
+
+    if(age<18){
+        alert("Age must be 18+");
+        return false;
+    }
+
+    var phonePattern=/^[0-9]{10}$/;
+    if(!phonePattern.test(phone)){
+        alert("Invalid phone number");
+        return false;
+    }
+
+    alert("Student Registered");
+    return true;
+}
+</script>
+</head>
+
+<body>
+
+<h2 align="center">Student Registration</h2>
+
+<form onsubmit="return validate()">
+<input type="text" id="name" placeholder="Name">
+<input type="number" id="age" placeholder="Age">
+<input type="text" id="phone" placeholder="Phone Number">
+
+<select id="course">
+<option>Choose Course</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>EEE</option>
+</select>
+
+<button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
